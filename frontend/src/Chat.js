@@ -3,9 +3,9 @@ import "./Chat.css";
 import { Avatar, IconButton } from "@material-ui/core";
 import { MoreVert, SearchOutlined, AttachFile } from "@material-ui/icons";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-import MicIcon from '@material-ui/icons/Mic'
+import MicIcon from "@material-ui/icons/Mic";
 
-function Chat() {
+function Chat({ messages }) {
   return (
     <div className="chat">
       <div className="chat-header">
@@ -27,11 +27,12 @@ function Chat() {
         </div>
       </div>
       <div className="chat-body">
-        <p className="chat-message">
-          <span className="chat-name">Andy</span>
-          This is the message
-          <span className="chat-timestamp">{new Date().toUTCString()}</span>
-        </p>
+        {messages.map((message) => (
+        <p className={`chat-message ${message.recieved && 'chat-reciever'}`}>
+          <span className="chat-name">{message.name}</span>
+          {message.message}
+          <span className="chat-timestamp">{message.timestamp}</span>
+        </p>))}
         <p className="chat-message chat-reciever">
           <span className="chat-name">Doogie</span>
           This is a message
@@ -41,13 +42,8 @@ function Chat() {
       <div className="chat-footer">
         <InsertEmoticonIcon />
         <form>
-          <input
-            type="text"
-            placeholder="Type a message"
-          />
-          <button type="submit">
-            Send a message
-          </button>
+          <input type="text" placeholder="Type a message" />
+          <button type="submit">Send a message</button>
         </form>
         <MicIcon />
       </div>
