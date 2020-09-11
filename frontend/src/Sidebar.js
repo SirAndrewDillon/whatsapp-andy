@@ -10,9 +10,8 @@ import {SearchOutlined} from '@material-ui/icons'
 function Sidebar() {
   return (
     <div className="sidebar">
-      <h1>Sidebar</h1>
       <div className="sidebar-header">
-          <Avatar src='https://user-images.githubusercontent.com/334891/29999089-2837c968-9009-11e7-92c1-6a7540a594d5.png' />
+          <Avatar src='https://pngimg.com/uploads/mario/mario_PNG55.png' />
         <div className="sidebar-headerRight">
           <IconButton>
             <DonutLargeIcon />
